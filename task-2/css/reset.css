@@ -1,33 +1,39 @@
 html {
-    box-sizing: border-box; 
-  }
-  
-  *,
-  *:before,
-  *:after {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
-  }
-  
-  ul, ol {
+}
+
+ul,
+ol {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: inherit;
     font-weight: 400;
     margin: 0;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: inherit;
-  }
-  
-  button {
+}
+
+button {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -35,27 +41,27 @@ html {
     border: none;
     color: inherit;
     cursor: pointer;
-  }
-  
-  input,
-  textarea {
+}
+
+input,
+textarea {
     font-family: inherit;
     font-size: inherit;
     border: none;
-  }
-  
-  input[type="radio"],
-  input[type="checkbox"] {
-      appearance: none;
-  }
-  
-  input::placeholder,
-  textarea::placeholder {
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;
+}
+
+input::placeholder,
+textarea::placeholder {
     font-family: inherit;
     font-size: inherit;
-  }
-  
-  input:focus,
-  textarea:focus {
+}
+
+input:focus,
+textarea:focus {
     outline: none;
-  }
+}

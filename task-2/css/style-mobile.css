@@ -1,0 +1,10 @@
+@media screen and (max-width: 500px) {
+    .images {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+    }
+
+    .images > img {
+        border: 5px solid #dc143c;
+    }
+}
