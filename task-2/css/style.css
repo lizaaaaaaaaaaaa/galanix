@@ -115,3 +115,13 @@ body.overlay::after {
     font-size: 15px;
     margin: 10px auto 0;
 }
+
+.restore {
+    padding: 12px 16px;
+    border: 1px solid #dc143c;
+    color: #dc143c;
+    background-color: transparent;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 50px;
+}

@@ -15,12 +15,16 @@ const hideImageAndPushIntoArrayContainer = (index, element) => {
     removedImages.push(index); // занесення картинок зображень до масиву removedImages
     element.style.display = "none"; // приховання контейнеру, де знаходиться картинка
 };
+const transformDate = (date) => {
+    return date > 9 ? date.toString() : "0" + date;
+};
 // функція, яка відповідає за звернення до сховища, де зберігається видалені картинки та їх видалення після перезавантеження сторінки
 imgs.forEach((img, index) => {
     //   отримання сховища
     const storageImages = JSON.parse(localStorage.getItem("removedImages") || "[]");
-    //   занесення видалених картинок до масиву для збереження видалених картинок в минулий раз заходу сторінку та приховання їх, якщо в 
-    storageImages.includes(index) && hideImageAndPushIntoArrayContainer(index, img.parentElement);
+    //   занесення видалених картинок до масиву для збереження видалених картинок в минулий раз заходу сторінку та приховання їх, якщо в
+    storageImages.includes(index) &&
+        hideImageAndPushIntoArrayContainer(index, img.parentElement);
     countingImagesHandler();
 });
 imgs.forEach((img, index) => {
@@ -60,5 +64,5 @@ restore.onclick = () => {
     countingImagesHandler();
 };
 // відображення дати в елементі dateTag
-const actualDate = `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}`;
+const actualDate = `${transformDate(new Date().getDate())}.${transformDate(new Date().getMonth() + 1)}.${new Date().getFullYear()} ${transformDate(new Date().getHours())}:${transformDate(new Date().getMinutes())}`;
 dateTag.innerText = actualDate;

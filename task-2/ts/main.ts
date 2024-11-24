@@ -1,9 +1,13 @@
-let imgs = Array.from(document.getElementsByTagName("img")) as HTMLImageElement[]; // константа для отримання всіх зображень на сторінці
+let imgs = Array.from(
+  document.getElementsByTagName("img")
+) as HTMLImageElement[]; // константа для отримання всіх зображень на сторінці
 const dateTag = document.getElementById("date") as HTMLDivElement; // отримання елемента для додання дати
 const gallery = document.getElementsByClassName("gallery")[0] as HTMLDivElement; // оримання елемента для галереї
 const closeBtn = gallery.children[0] as HTMLButtonElement; // отримання кнопки для закриття галереї
 const amountTag = document.getElementById("amountOfImages") as HTMLSpanElement; // отримання елемента, який підраховуї картинки на сторінці
-const restore = document.getElementsByClassName("restore")[0] as HTMLButtonElement; // отримання кнопка, яка відновлює пиховані сторінки
+const restore = document.getElementsByClassName(
+  "restore"
+)[0] as HTMLButtonElement; // отримання кнопка, яка відновлює пиховані сторінки
 
 const removedImages: number[] = []; // змінна типу масив для зберігання видалених картинок
 
@@ -13,9 +17,16 @@ const countingImagesHandler = (): void => {
 };
 
 // функція, яка заносить картинку до масиву removedImages та приховує елемент, в якому вона знаходиться
-const hideImageAndPushIntoArrayContainer = (index: number, element: HTMLDivElement): void => {
+const hideImageAndPushIntoArrayContainer = (
+  index: number,
+  element: HTMLDivElement
+): void => {
   removedImages.push(index); // занесення картинок зображень до масиву removedImages
   element.style.display = "none"; // приховання контейнеру, де знаходиться картинка
+};
+
+const transformDate = (date: number): string => {
+  return date > 9 ? date.toString() : "0" + date;
 };
 
 // функція, яка відповідає за звернення до сховища, де зберігається видалені картинки та їх видалення після перезавантеження сторінки
@@ -25,8 +36,12 @@ imgs.forEach((img: HTMLImageElement, index: number) => {
     localStorage.getItem("removedImages") || "[]"
   );
 
-  //   занесення видалених картинок до масиву для збереження видалених картинок в минулий раз заходу сторінку та приховання їх, якщо в 
-  storageImages.includes(index) && hideImageAndPushIntoArrayContainer(index, img.parentElement as HTMLDivElement);
+  //   занесення видалених картинок до масиву для збереження видалених картинок в минулий раз заходу сторінку та приховання їх, якщо в
+  storageImages.includes(index) &&
+    hideImageAndPushIntoArrayContainer(
+      index,
+      img.parentElement as HTMLDivElement
+    );
 
   countingImagesHandler();
 });
@@ -47,7 +62,10 @@ imgs.forEach((img, index) => {
   //   перевірка наявності кнопки та обробка видаленняк
   deleteBtn &&
     (deleteBtn.onclick = () => {
-      hideImageAndPushIntoArrayContainer(index, deleteBtn.parentElement as HTMLDivElement);
+      hideImageAndPushIntoArrayContainer(
+        index,
+        deleteBtn.parentElement as HTMLDivElement
+      );
       localStorage.setItem("removedImages", JSON.stringify(removedImages)); // оновлення локального сховища відповідно до оноаленого масиву removedImages
       countingImagesHandler();
     });
@@ -74,9 +92,11 @@ restore.onclick = () => {
   countingImagesHandler();
 };
 
-// відображення дати в елементі dateTag
-const actualDate = `${new Date().getDate()}.${
+// відображення дати в елементі dateTag з використанням функція для приведення дати в потрібний вид ДД.ММ.ГГГГ ЧЧ:ММ
+const actualDate = `${transformDate(new Date().getDate())}.${transformDate(
   new Date().getMonth() + 1
-}.${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}`;
+)}.${new Date().getFullYear()} ${transformDate(
+  new Date().getHours()
+)}:${transformDate(new Date().getMinutes())}`;
 
 dateTag.innerText = actualDate;
