@@ -40,21 +40,28 @@ body.overlay::after {
     overflow: hidden;
 }
 
-.images>img {
+.images>div {
+    position: relative;
+    display: inline;
     width: 100%;
     height: 100%;
+}
+
+.image {
+    width: 100%;
+    height: (100% - 20px);
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid #686868;
-    aspect-ratio: 1;
     transition: .4s;
+    aspect-ratio: 1;
 }
 
-.images>img:nth-child(4n+1) {
+.images>div:nth-child(4n+1) .image {
     border: 5px solid #dc143c;
 }
 
-.images>img:hover {
+.images>div>.image:hover {
     border: 5px solid #ffff99;
     transform: rotate(-45deg);
     transition: .4s;
@@ -101,4 +108,10 @@ body.overlay::after {
     color: #fff;
     top: 10%;
     transform: translateY(-10%);
+}
+
+.btn-remove {
+    display: block;
+    font-size: 15px;
+    margin: 10px auto 0;
 }

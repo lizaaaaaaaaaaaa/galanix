@@ -4,7 +4,7 @@
         grid-template-rows: repeat(12, 1fr);
     }
 
-    .images>img {
+    .image {
         border: 5px solid #dc143c;
     }
 
