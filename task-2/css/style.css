@@ -6,12 +6,29 @@ body {
     color: #272727;
     background-color: #fff;
     overflow-x: hidden;
+    position: relative;
+}
+
+body.overlay {
+    overflow: hidden;
+}
+
+body.overlay::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
 }
 
 .container {
     max-width: calc(80% + 20px * 2);
     padding: 0 20px;
     margin: 0 auto;
+}
+
+.details {
+    padding-top: 50px;
 }
 
 .images {
@@ -23,7 +40,7 @@ body {
     overflow: hidden;
 }
 
-.images > img {
+.images>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -33,12 +50,55 @@ body {
     transition: .4s;
 }
 
-.images > img:nth-child(4n+1) {
+.images>img:nth-child(4n+1) {
     border: 5px solid #dc143c;
 }
 
-.images > img:hover {
-    border: 5px solid 	#ffff99;
+.images>img:hover {
+    border: 5px solid #ffff99;
     transform: rotate(-45deg);
     transition: .4s;
+}
+
+.details {
+    display: flex;
+    gap: 0 30px;
+}
+
+.gallery {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: fit-content;
+    max-width: 90%;
+    max-height: 120%;
+    aspect-ratio: 1;
+    margin: auto;
+}
+
+.gallery.gallery-show {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.gallery>img {
+    width: calc(100% - 30px);
+    height: 100%;
+    margin: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.close {
+    position: relative;
+    align-self: flex-start;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    top: 10%;
+    transform: translateY(-10%);
 }

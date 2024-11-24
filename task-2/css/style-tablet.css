@@ -4,7 +4,11 @@
         grid-template-rows: repeat(6, 1fr);
     }
 
-    .images > img:nth-child(2n+1) {
+    .images>img:nth-child(2n+1) {
         border: 5px solid #dc143c;
+    }
+
+    .close {
+        font-size: 25px;
     }
 }

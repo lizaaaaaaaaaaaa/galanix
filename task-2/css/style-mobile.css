@@ -4,7 +4,11 @@
         grid-template-rows: repeat(12, 1fr);
     }
 
-    .images > img {
+    .images>img {
         border: 5px solid #dc143c;
+    }
+
+    .close {
+        font-size: 20px;
     }
 }
