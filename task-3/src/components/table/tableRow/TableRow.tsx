@@ -3,14 +3,15 @@ import IUniversity from "../../../models/IUniversity";
 import styles from "./TableRow.module.css";
 import TableDomains from "../tableDomains/TableDomains";
 import TableWebsites from "../tableWebsites/TableWebsites";
-import CheckBoxInput from "../../checkboxInput/CheckBoxInput";
+import CheckBoxInput from "../checkboxInput/CheckBoxInput";
 
 type PropsType = {
   number: number;
   university: IUniversity;
+  followCheckedInputsHandler: () => void;
 };
 
-const TableRow: FC<PropsType> = ({ university, number }) => {
+const TableRow: FC<PropsType> = ({ university, number, followCheckedInputsHandler }) => {
   return (
     <tr className={styles.table__row}>
       <td>{number}</td>
@@ -33,7 +34,10 @@ const TableRow: FC<PropsType> = ({ university, number }) => {
         </ul>
       </td>
       <td>
-        <CheckBoxInput name={university.name} />
+        <CheckBoxInput
+          name={university.name}
+          followCheckedInputsHandler={followCheckedInputsHandler}
+        />
       </td>
     </tr>
   );

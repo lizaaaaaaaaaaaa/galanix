@@ -4,3 +4,17 @@
     background-color: #c4c3c3;
     font-weight: bold;
 }
+
+@media screen and (max-width: 580px) {
+    .table__headers>th {
+        word-wrap: break-word;
+        word-break: break-all;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+
+    .table__headers>th:first-child {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+    }
+}

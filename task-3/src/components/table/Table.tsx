@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import searchByCountry from "../../services/api.service";
 import IUniversity from "../../models/IUniversity";
@@ -7,7 +7,9 @@ import TableRow from "./tableRow/TableRow";
 import styles from "./Table.module.css";
 import Loader from "../UI/Loader/Loader";
 
-const Table = () => {
+const Table: FC<{ followCheckedInputsHandler: () => void }> = ({
+  followCheckedInputsHandler,
+}) => {
   const [searchParams] = useSearchParams();
   const [data, setData] = useState<IUniversity[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -45,8 +47,8 @@ const Table = () => {
         Enter a country in the input to start the search!
       </p>
     );
-  } 
-  
+  }
+
   if (!isLoading && data.length === 0) {
     return (
       <p className={styles.table__empty}>
@@ -62,7 +64,12 @@ const Table = () => {
       </thead>
       <tbody>
         {data.map((university, index) => (
-          <TableRow key={index} number={index + 1} university={university} />
+          <TableRow
+            key={index}
+            number={index + 1}
+            university={university}
+            followCheckedInputsHandler={followCheckedInputsHandler}
+          />
         ))}
       </tbody>
     </table>

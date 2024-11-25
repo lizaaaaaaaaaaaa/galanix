@@ -1,6 +1,6 @@
 .form {
     display: flex;
-    margin:00px auto;
+    margin: 00px auto;
     width: 350px;
     border-bottom: 3px solid #272727;
 }
@@ -17,4 +17,10 @@
 .form button {
     width: 10%;
     background-color: #fff;
+}
+
+@media screen and (max-width: 460px) {
+    .form {
+        width: 100%;
+    }
 }

@@ -1,7 +1,12 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./CheckBoxInput.module.css";
 
-const CheckBoxInput: FC<{ name: string }> = ({ name }) => {
+type PropsType = {
+  name: string;
+  followCheckedInputsHandler: () => void;
+};
+
+const CheckBoxInput: FC<PropsType> = ({ name, followCheckedInputsHandler }) => {
   const [checked, setChecked] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,6 +34,7 @@ const CheckBoxInput: FC<{ name: string }> = ({ name }) => {
 
     localStorage.setItem("universities", JSON.stringify(updatedUniversities));
     setChecked(!checked);
+    followCheckedInputsHandler();
   };
 
   return (
