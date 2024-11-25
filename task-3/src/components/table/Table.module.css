@@ -4,6 +4,12 @@
     margin-bottom: 50px;
 }
 
+.table__start {
+    font-size: 23px;
+    text-align: center;
+    color: #8fbc8f;
+}
+
 .table__empty,
 .table__error {
     font-size: 18px;

@@ -39,6 +39,14 @@ const Table = () => {
     return <p className={styles.table__error}>{httpError}</p>;
   }
 
+  if (!country) {
+    return (
+      <p className={styles.table__start}>
+        Enter a country in the input to start the search!
+      </p>
+    );
+  } 
+  
   if (!isLoading && data.length === 0) {
     return (
       <p className={styles.table__empty}>
