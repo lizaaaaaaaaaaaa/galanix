@@ -1,0 +1,15 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+.table__empty,
+.table__error {
+    font-size: 18px;
+    text-align: center;
+}
+
+.table__error {
+    color: #dc143d;
+}

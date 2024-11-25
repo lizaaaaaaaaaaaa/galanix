@@ -1,0 +1,6 @@
+.table__headers>th {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #c4c3c3;
+    font-weight: bold;
+}
