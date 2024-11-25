@@ -3,6 +3,7 @@ import IUniversity from "../../../models/IUniversity";
 import styles from "./TableRow.module.css";
 import TableDomains from "../tableDomains/TableDomains";
 import TableWebsites from "../tableWebsites/TableWebsites";
+import CheckBoxInput from "../../checkboxInput/CheckBoxInput";
 
 type PropsType = {
   number: number;
@@ -30,6 +31,9 @@ const TableRow: FC<PropsType> = ({ university, number }) => {
             <TableWebsites key={index} website={webPage} />
           ))}
         </ul>
+      </td>
+      <td>
+        <CheckBoxInput name={university.name} />
       </td>
     </tr>
   );

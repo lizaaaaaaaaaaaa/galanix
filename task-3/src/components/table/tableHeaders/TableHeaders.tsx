@@ -11,6 +11,7 @@ const TableHeaders: FC = () => {
       <th>Alpha 2 code</th>
       <th>Domains</th>
       <th>Web Pages</th>
+      <th>Save to my list</th>
     </tr>
   );
 };
